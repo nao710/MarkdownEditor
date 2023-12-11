@@ -3,7 +3,7 @@ import Editor from "./Editor";
 import Parse from "./Parse";
 
 const App = () => {
-  const initalDoc = "Hello\n\n```javascript\nlet x = 'y'\n```";
+  const initalDoc = "# Hello World!\n";
   const [code, setCode] = useState(initalDoc);
   return (
     <>
