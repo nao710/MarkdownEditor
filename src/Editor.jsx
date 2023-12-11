@@ -1,13 +1,14 @@
 import React, { useEffect, useRef } from "react";
-import { EditorView, lineNumbers } from "@codemirror/view";
+import { EditorView, lineNumbers, highlightActiveLine } from "@codemirror/view";
 import { EditorState } from "@codemirror/state";
 import { markdown } from "@codemirror/lang-markdown";
 import { languages } from "@codemirror/language-data";
 import {
   defaultHighlightStyle,
   syntaxHighlighting,
+  bracketMatching,
 } from "@codemirror/language";
-import { oneDark } from "@codemirror/theme-one-dark";
+import { dracula } from "thememirror";
 
 const Editor = ({ Value, onChange }) => {
   const editorRef = useRef();
@@ -22,12 +23,14 @@ const Editor = ({ Value, onChange }) => {
       doc: Value,
       extensions: [
         lineNumbers(),
+        bracketMatching(),
+        highlightActiveLine(),
         markdown({ codeLanguages: languages }),
         syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
         EditorView.lineWrapping,
         updateCallback,
+        dracula,
       ],
-      oneDark,
     });
 
     const View = new EditorView({
