@@ -8,7 +8,7 @@ import {
   syntaxHighlighting,
 } from "@codemirror/language";
 import "github-markdown-css/github-markdown.css";
-import Parse from "./preview";
+import Parse from "./Parse";
 
 const Codemirror = ({ value, onChange }) => {
   const editorRef = useRef();
