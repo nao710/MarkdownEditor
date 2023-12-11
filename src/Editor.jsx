@@ -7,6 +7,7 @@ import {
   defaultHighlightStyle,
   syntaxHighlighting,
 } from "@codemirror/language";
+import { oneDark } from "@codemirror/theme-one-dark";
 
 const Editor = ({ Value, onChange }) => {
   const editorRef = useRef();
@@ -26,6 +27,7 @@ const Editor = ({ Value, onChange }) => {
         EditorView.lineWrapping,
         updateCallback,
       ],
+      oneDark,
     });
 
     const View = new EditorView({
