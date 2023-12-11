@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { EditorView, lineNumbers } from "@codemirror/view";
 import { EditorState } from "@codemirror/state";
 import { markdown } from "@codemirror/lang-markdown";
