@@ -3,3 +3,13 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+html {
+  background-color: #0d1117;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-flow: 1;
+}
