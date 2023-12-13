@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Editor from "./Editor";
 import Parse from "./Parse";
 import "./App.css";
 
 const App = () => {
-  const initalDoc = "# Hello World!\n";
-  const [code, setCode] = useState(initalDoc);
+  const [code, setCode] = useState<string>("# Hello World!\n");
+
   return (
     <>
       <div className="content">
-        <Editor Value={code} onChange={(value) => setCode(value)} />
+        <Editor
+          defaultValue={code}
+          onChange={(value: string) => setCode(value)}
+        />
         <Parse Value={code} />
       </div>
     </>

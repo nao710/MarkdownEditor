@@ -3,7 +3,11 @@ import { useRemark } from "react-remark";
 import "github-markdown-css/github-markdown.css";
 import "./Parse.css";
 
-const Parse = ({ Value }) => {
+interface Props {
+  Value: string;
+}
+const Parse: React.FC<Props> = (props) => {
+  const { Value } = props;
   const [markdownContent, setmarkdownSource] = useRemark();
   useEffect(() => {
     setmarkdownSource(Value);

@@ -11,13 +11,16 @@ import {
 import { dracula } from "thememirror";
 import "./Editor.css";
 
-const Editor = ({ Value, onChange }) => {
-  const editorRef = useRef();
-
-  const updateCallback = EditorView.updateListener.of((update) => {
-    onChange(update.state.doc.toString());
-  });
-
+interface Props {
+  defaultValue: string;
+  onChange: (event: any) => void;
+}
+const Editor: React.FC<Props> = (props) => {
+  const { defaultValue, onChange } = props;
+  const editorRef = useRef<HTMLDivElement>(null);
+  const updateCallback = EditorView.updateListener.of(
+    (update) => update.docChanged && onChange(update.state.doc.toString()),
+  );
   const transparentTheme = EditorView.theme({
     "&": {
       backgroundColor: "transparent !important",
@@ -27,7 +30,7 @@ const Editor = ({ Value, onChange }) => {
   useEffect(() => {
     if (editorRef.current === null) return;
     const startState = EditorState.create({
-      doc: Value,
+      doc: defaultValue,
       extensions: [
         lineNumbers(),
         bracketMatching(),
