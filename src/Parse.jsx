@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useRemark } from "react-remark";
 import "github-markdown-css/github-markdown.css";
+import "./Parse.css";
 
 const Parse = ({ Value }) => {
   const [markdownContent, setmarkdownSource] = useRemark();

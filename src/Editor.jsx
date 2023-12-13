@@ -9,12 +9,19 @@ import {
   bracketMatching,
 } from "@codemirror/language";
 import { dracula } from "thememirror";
+import "./Editor.css";
 
 const Editor = ({ Value, onChange }) => {
   const editorRef = useRef();
 
   const updateCallback = EditorView.updateListener.of((update) => {
     onChange(update.state.doc.toString());
+  });
+
+  const transparentTheme = EditorView.theme({
+    "&": {
+      backgroundColor: "transparent !important",
+    },
   });
 
   useEffect(() => {
@@ -29,6 +36,7 @@ const Editor = ({ Value, onChange }) => {
         syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
         EditorView.lineWrapping,
         updateCallback,
+        transparentTheme,
         dracula,
       ],
     });
@@ -42,7 +50,7 @@ const Editor = ({ Value, onChange }) => {
     };
   }, [editorRef]);
 
-  return <div ref={editorRef}></div>;
+  return <div className="Editor" ref={editorRef}></div>;
 };
 
 export default Editor;
