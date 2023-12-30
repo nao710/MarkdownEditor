@@ -8,7 +8,7 @@
     "electron": "electron .",
     "dev": "electron-vite dev -w",
     "build": "electron-vite build",
-    "preview": "electron-vite preview"
+    "preview": "electron-vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
   },
   "dependencies": {
