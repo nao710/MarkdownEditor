@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "electron/src/main.mjs",
+  "main": "electron/src/main.js",
   "scripts": {
     "electron": "electron .",
     "dev": "electron-vite dev -w",
@@ -32,7 +32,6 @@
     "@vitejs/plugin-react": "^4.2.1",
     "codemirror": "^6.0.1",
     "electron": "^28.1.0",
-    "electron-vite": "^1.0.29",
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
