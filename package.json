@@ -2,9 +2,12 @@
   "name": "ts-editor",
   "private": true,
   "version": "0.0.0",
-  "main": "electron/src/main.js",
+  "type": "module",
+  "main": "electron/src/main.mjs",
   "scripts": {
-    "dev": "vite",
+    "electron" : "electron .",
+    "vite":"vite",
+    "dev": "run-p vite electron",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -33,6 +36,7 @@
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "npm-run-all": "^4.1.5",
     "prettier": "^3.1.0",
     "react-remark": "^2.1.0",
     "typescript": "^5.2.2",
