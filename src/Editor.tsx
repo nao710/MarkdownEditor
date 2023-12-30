@@ -25,6 +25,9 @@ const Editor: React.FC<Props> = (props) => {
     "&": {
       backgroundColor: "transparent !important",
     },
+    "&.cm-focused": {
+      outline: "none",
+    },
   });
 
   useEffect(() => {
