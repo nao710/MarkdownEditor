@@ -5,12 +5,11 @@
   "type": "module",
   "main": "electron/src/main.mjs",
   "scripts": {
-    "electron" : "electron .",
-    "vite":"vite",
-    "dev": "run-p vite electron",
-    "build": "tsc && vite build",
+    "electron": "electron .",
+    "dev": "electron-vite dev -w",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview"
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
   },
   "dependencies": {
     "github-markdown-css": "^5.5.0",
@@ -33,6 +32,7 @@
     "@vitejs/plugin-react": "^4.2.1",
     "codemirror": "^6.0.1",
     "electron": "^28.1.0",
+    "electron-vite": "^1.0.29",
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
