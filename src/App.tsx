@@ -1,13 +1,15 @@
-import { useState } from "react";
-import Editor from "./Editor";
-import Parse from "./Parse";
-import "./App.css";
+import React, { useState } from "react";
+import Editor from "./components/editor";
+import Parse from "./components/parse";
+import Titlebar from "./components/titlebar";
+import './App.css'
 
 const App = () => {
   const [code, setCode] = useState<string>("# Hello World!\n");
 
   return (
     <>
+      <Titlebar />
       <div className="content">
         <Editor
           defaultValue={code}
@@ -19,4 +21,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default App
