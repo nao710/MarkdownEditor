@@ -86,6 +86,7 @@ typings/
 .webpack/
 
 # Vite
+.vite/
 
 # Electron-Forge
 out/
