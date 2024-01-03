@@ -1,5 +1,4 @@
 import { app, BrowserWindow } from 'electron';
-import electronInstaller from "electron-winstaller"
 import path from 'path';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -7,17 +6,6 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
-// NB: Use this syntax within an async function, Node does not have support for
-//     top-level await as of Node 12.
-try {
-  await electronInstaller.createWindowsInstaller({
-    appDirectory: './MarkdownEditor',
-    outputDirectory: './windows_installer',
-    exe: 'MarkdownEditor.exe'
-  });
-} catch (e) {
-  console.log(`No dice: ${e.message}`);
-}
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
