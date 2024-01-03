@@ -5,11 +5,14 @@
 }
 
 html {
-  background-color: #0d1117;
+  background-color: #282c34;
 }
 
 .content {
   display: flex;
   flex-direction: row;
   flex-flow: 1;
+}
+body::-webkit-scrollbar{
+    display: none;
 }
