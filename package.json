@@ -40,10 +40,10 @@
     "typescript": "~4.5.4"
   },
   "dependencies": {
+    "@codemirror/theme-one-dark": "^6.1.2",
     "electron-squirrel-startup": "^1.0.0",
     "github-markdown-css": "^5.5.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "thememirror": "^2.0.1"
+    "react-dom": "^18.2.0"
   }
 }
