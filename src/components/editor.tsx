@@ -8,7 +8,7 @@ import {
   syntaxHighlighting,
   bracketMatching,
 } from "@codemirror/language";
-import { dracula } from "thememirror";
+import { oneDark } from "@codemirror/theme-one-dark";
 import "./Editor.css";
 
 interface Props {
@@ -43,7 +43,7 @@ const Editor: React.FC<Props> = (props) => {
         EditorView.lineWrapping,
         updateCallback,
         transparentTheme,
-        dracula,
+        oneDark
       ],
     });
 
