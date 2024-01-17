@@ -1,4 +1,4 @@
-import { app, BrowserWindow, ipcMain } from "electron";
+import { app, BrowserWindow, ipcMain, shell } from "electron";
 import path from "path";
 
 if (require("electron-squirrel-startup")) {
@@ -22,6 +22,14 @@ const createWindow = () => {
       path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`),
     );
   }
+
+  const urlOpenhandler = (event: Electron.Event, url: string) => {
+    if (url.match(/^http/)) {
+      event.preventDefault();
+      shell.openExternal(url);
+    }
+  };
+  mainWindow.webContents.on('will-navigate', urlOpenhandler);
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
