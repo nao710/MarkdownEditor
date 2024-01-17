@@ -23,14 +23,14 @@ const createWindow = () => {
     );
   }
 
-  const urlOpenhandler = (event: Electron.Event, url: string) => {
+  const handleUrlOpen = (e: any, url: any) => {
     if (url.match(/^http/)) {
-      event.preventDefault();
+      e.preventDefault();
       shell.openExternal(url);
     }
   };
-  mainWindow.webContents.on('will-navigate', urlOpenhandler);
 
+  mainWindow.webContents.on('will-navigate', handleUrlOpen);
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
   mainWindow.setMenuBarVisibility(false);
