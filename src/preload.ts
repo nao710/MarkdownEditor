@@ -8,5 +8,10 @@ contextBridge.exposeInMainWorld(
   min: () => ipcRenderer.invoke('min'),
   max: () => ipcRenderer.invoke('max'),
   restore: () => ipcRenderer.invoke('restore')
-}
+},
+)
+contextBridge.exposeInMainWorld(
+  'FileControl', {
+  LoadFile: async () => { return await ipcRenderer.invoke('LoadFile') }
+},
 )

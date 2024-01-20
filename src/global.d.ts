@@ -6,6 +6,10 @@ declare global {
       max: () => Promise<string>
       restore: () => Promise<string>
     };
+    FileControl: {
+      LoadFile: () => Promise<string>
+      data: string
+    }
   }
 }
 export { }

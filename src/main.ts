@@ -1,4 +1,5 @@
-import { app, BrowserWindow, ipcMain, shell } from "electron";
+import { app, BrowserWindow, dialog, ipcMain, shell } from "electron";
+import fs from "fs/promises"
 import path from "path";
 
 if (require("electron-squirrel-startup")) {
@@ -39,6 +40,23 @@ const createWindow = () => {
   });
 };
 
+ipcMain.handle("LoadFile", async () => {
+  const { filePaths } = await dialog.showOpenDialog(
+    BrowserWindow.getFocusedWindow(),
+    {
+      properties: ["openFile"],
+      filters: [
+        {
+          name: "Markdown",
+          extensions: ["md"]
+        }
+      ]
+    },
+  )
+  let path = filePaths[0].toString()
+  let data = await fs.readFile(path, { encoding: "utf-8" })
+  return data
+})
 
 app.on("ready", createWindow);
 
