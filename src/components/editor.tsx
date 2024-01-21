@@ -13,10 +13,11 @@ import "./Editor.css";
 
 interface Props {
   defaultValue: string;
+  file: string;
   onChange: (event: any) => void;
 }
 const Editor: React.FC<Props> = (props) => {
-  const { defaultValue, onChange } = props;
+  const { defaultValue, file, onChange } = props;
   const editorRef = useRef<HTMLDivElement>(null);
   const updateCallback = EditorView.updateListener.of(
     (update) => update.docChanged && onChange(update.state.doc.toString()),
@@ -51,10 +52,18 @@ const Editor: React.FC<Props> = (props) => {
       state: startState,
       parent: editorRef.current,
     });
+
+    View.dispatch({
+      changes: {
+        from: 0,
+        to: View.state.doc.length,
+        insert: file
+      }
+    })
     return () => {
       View.destroy();
     };
-  }, [editorRef]);
+  }, [editorRef, file]);
 
   return <div className="Editor" ref={editorRef}></div>;
 };

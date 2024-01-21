@@ -5,14 +5,16 @@ import Titlebar from "./components/titlebar";
 import './App.css'
 
 const App = () => {
-  const [code, setCode] = useState<string>("# Hello World!\n");
+  const [code, setCode] = useState<string>("");
+  const [file, setFile] = useState<string>("")
 
   return (
     <>
-      <Titlebar />
+      <Titlebar setFile={setFile} value={code} />
       <div className="content">
         <Editor
-          defaultValue={code}
+          defaultValue={file}
+          file={file}
           onChange={(value: string) => setCode(value)}
         />
         <Parse Value={code} />
