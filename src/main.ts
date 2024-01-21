@@ -8,7 +8,7 @@ if (require("electron-squirrel-startup")) {
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
-    width: 1200,
+    width: 1400,
     height: 800,
     frame: false,
     webPreferences: {
@@ -56,6 +56,19 @@ ipcMain.handle("LoadFile", async () => {
   let path = filePaths[0].toString()
   let data = await fs.readFile(path, { encoding: "utf-8" })
   return data
+})
+
+ipcMain.handle('SaveFile', async (event, data) => {
+  const { filePath, canceled } = await dialog.showSaveDialog(
+    BrowserWindow.getFocusedWindow(),
+    {
+      filters: [
+        { name: "Markdown", extensions: ["md"] }
+      ]
+    }
+  )
+  if (canceled) return;
+  fs.writeFile(filePath, data)
 })
 
 app.on("ready", createWindow);

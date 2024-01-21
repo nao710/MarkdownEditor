@@ -8,7 +8,7 @@ declare global {
     };
     FileControl: {
       LoadFile: () => Promise<string>
-      data: string
+      SaveFile: () => Promise<string>
     }
   }
 }

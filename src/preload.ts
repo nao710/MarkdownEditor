@@ -12,6 +12,7 @@ contextBridge.exposeInMainWorld(
 )
 contextBridge.exposeInMainWorld(
   'FileControl', {
-  LoadFile: async () => { return await ipcRenderer.invoke('LoadFile') }
+  LoadFile: async () => { return await ipcRenderer.invoke('LoadFile') },
+  SaveFile: (data: string) => { return ipcRenderer.invoke('SaveFile', data) }
 },
 )
