@@ -3,3 +3,9 @@
   padding: 45px;
   background-color:transparent;
 }
+.markdown-body h1{
+  padding-top: 32px;
+}
+.markdown-body h2{
+  padding-top: 32px;
+}
