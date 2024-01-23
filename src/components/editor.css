@@ -5,3 +5,6 @@
   margin-top: 32px;
   overflow-y: hidden;
 }
+.cm-editor .cm-fat-cursor {
+  background-color: #21de8c;
+}

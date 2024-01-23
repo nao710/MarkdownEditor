@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { EditorView, lineNumbers, highlightActiveLine } from "@codemirror/view";
+import { EditorView, lineNumbers, highlightActiveLine, drawSelection } from "@codemirror/view";
 import { EditorState } from "@codemirror/state";
 import { markdown } from "@codemirror/lang-markdown";
 import { languages } from "@codemirror/language-data";
@@ -9,6 +9,7 @@ import {
   bracketMatching,
 } from "@codemirror/language";
 import { oneDark } from "@codemirror/theme-one-dark";
+import { vim } from "@replit/codemirror-vim";
 import "./Editor.css";
 
 interface Props {
@@ -41,6 +42,8 @@ const Editor: React.FC<Props> = (props) => {
         highlightActiveLine(),
         markdown({ codeLanguages: languages }),
         syntaxHighlighting(defaultHighlightStyle, { fallback: true }),
+        drawSelection({ cursorBlinkRate: 0 }),
+        vim(),
         EditorView.lineWrapping,
         updateCallback,
         transparentTheme,

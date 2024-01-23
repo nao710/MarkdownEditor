@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "@codemirror/theme-one-dark": "^6.1.2",
+    "@replit/codemirror-vim": "^6.1.0",
     "electron-squirrel-startup": "^1.0.0",
     "github-markdown-css": "^5.5.0",
     "katex": "^0.16.9",
