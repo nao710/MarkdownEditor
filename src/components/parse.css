@@ -9,3 +9,7 @@
 .markdown-body h2{
   padding-top: 32px;
 }
+.katex-display > .katex {
+  text-align: left !important;
+  padding-left: 14px;
+}
