@@ -7,6 +7,8 @@ import "./titlebar.css"
 interface Props {
   setFile: any
   value: string
+  preMode: boolean
+  setPreMode: any
 }
 const Titlebar: React.FC<Props> = (props) => {
   const [Wsize, setWsize] = useState<boolean>(false)
@@ -32,6 +34,7 @@ const Titlebar: React.FC<Props> = (props) => {
         <div className="drag">
         </div>
         <div className="windowcontrol">
+          <button onClick={() => props.setPreMode(props.preMode ? false : true)}>{props.preMode ? "write" : "preview"}</button>
           <FileLoad value={props.value} setFile={props.setFile} />
           <button onClick={min}><FaRegWindowMinimize /></button>
           <button onClick={resize}>{Wsize ? <FaWindowRestore /> : <FaRegWindowMaximize />}</button>

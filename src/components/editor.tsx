@@ -16,9 +16,10 @@ interface Props {
   defaultValue: string;
   file: string;
   onChange: (event: any) => void;
+  preMode: boolean
 }
 const Editor: React.FC<Props> = (props) => {
-  const { defaultValue, file, onChange } = props;
+  const { defaultValue, file, preMode, onChange } = props;
   const editorRef = useRef<HTMLDivElement>(null);
   const updateCallback = EditorView.updateListener.of(
     (update) => update.docChanged && onChange(update.state.doc.toString()),
@@ -68,7 +69,7 @@ const Editor: React.FC<Props> = (props) => {
     };
   }, [editorRef, file]);
 
-  return <div className="Editor" ref={editorRef}></div>;
+  return <div className="Editor" ref={editorRef} style={{ display: preMode ? "none" : "" }}></div>;
 };
 
 export default Editor;

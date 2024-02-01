@@ -16,12 +16,18 @@ import "./Parse.css";
 
 interface Props {
   Value: string;
+  preMode: boolean;
 }
 const Parse: React.FC<Props> = (props) => {
-  const { Value } = props;
+  const { Value, preMode } = props;
 
-  return <ReactMarkdown className="markdown-body" remarkPlugins={[remarkHtml, remarkMath, remarkGfm, remarkBreaks, remarkSlug, [remarkToc, { maxDepth: 2, heading: "content" }]]} rehypePlugins={[rehypeStringify, rehypeKatex, rehypeRaw, rehypeHighlight]}>{Value}</ReactMarkdown>
-
+  return (
+    <>
+      <div className="markdown-body" style={{ margin: preMode ? "auto" : "" }}>
+        <ReactMarkdown remarkPlugins={[remarkHtml, remarkMath, remarkGfm, remarkBreaks, remarkSlug, [remarkToc, { maxDepth: 2, heading: "content" }]]} rehypePlugins={[rehypeStringify, rehypeKatex, rehypeRaw, rehypeHighlight]}>{Value}</ReactMarkdown>
+      </div>
+    </>
+  )
 };
 
 export default Parse;
