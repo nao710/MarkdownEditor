@@ -38,7 +38,6 @@ const Editor: React.FC<Props> = (props) => {
     const startState = EditorState.create({
       doc: defaultValue,
       extensions: [
-        lineNumbers(),
         bracketMatching(),
         highlightActiveLine(),
         markdown({ codeLanguages: languages }),
